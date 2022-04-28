@@ -1,10 +1,24 @@
-from scripts.tree import Tree
+from core.ga import GA
 
 
 class Main:
-    pass
+    def __init__(self):
+        self.running = True
+        
+        self.ga = GA()
+    
+    def next_gene(self):
+        self.ga.selection()
+        self.ga.crossover()
+        self.ga.mutation()
+        self.ga.repalce()
 
+    def update(self):
+        return
+    
+    def run(self):
+        while self.running:
+            self.next_gene()
+            self.update()
 
-if __name__ == '__main__':
-    tree = Tree.random()
-    print(tree.dna)
+Main().run()
